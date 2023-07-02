@@ -8,6 +8,10 @@ class ProductPage(BasePage):
         basket_btn.click()
         self.solve_quiz_and_get_code()
 
+    def add_product_to_busket_without_quiz(self):
+        basket_btn = self.browser.find_element(*ProductPageLocators.BASKET_BTN)
+        basket_btn.click()
+
     def should_match_product_name(self):
         our_product = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
         product_in_basket_name = self.browser.find_element(*ProductPageLocators.PRODUCT_IN_BASKET_NAME).text
@@ -20,12 +24,18 @@ class ProductPage(BasePage):
 
     # проверка, что нет сообщения о добавлении в корзину
     def should_not_be_success_message(self):
-        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_IN_BASKET_NAME), \
             "Success message is presented, but should not be"
 
-    def should_not_be_success_message(self):
-        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+    # проверка, что сообщение о добавлениии в корзину исчезает
+    def should_disappeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_IN_BASKET_NAME), \
             "Success message is presented, but should not be"
+
+
+
+
+
 
 
 

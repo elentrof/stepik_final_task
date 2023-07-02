@@ -16,3 +16,4 @@ class ProductPageLocators():
     PRODUCT_IN_BASKET_PRICE = (By.CSS_SELECTOR, '#messages > .alert.alert-info > .alertinner strong')
 
 
+
