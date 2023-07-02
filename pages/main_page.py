@@ -4,11 +4,7 @@ from .locators import MainPageLocators, LoginPageLocators
 from .login_page import LoginPage
 
 class MainPage(BasePage):
-    def go_to_login_page(self):
-        login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
-        login_link.click()
-        return LoginPage(browser=self.browser, url=self.browser.current_url)
-
-
-    def should_be_login_link(self):
-        assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
+    # Конструктор выше с ключевым словом super на самом деле только вызывает конструктор класса предка и передает ему все те аргументы, которые мы
+    # передали  в конструктор MainPage
+    def __init__(self, *args, **kwargs):
+        super(MainPage, self).__init__(*args, **kwargs)
