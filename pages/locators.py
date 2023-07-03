@@ -14,8 +14,6 @@ class LoginPageLocators():
     PWD_REPEAT_REGISTRATION = (By.CSS_SELECTOR, "#id_registration-password2")
     REGISTRATION_SUBMIT = (By.NAME, "registration_submit")
 
-
-
 class ProductPageLocators():
     BASKET_BTN = (By.CLASS_NAME, 'btn-add-to-basket')
     # MESSAGES_FORM = (By.CSS_SELECTOR, '#messages .alert-safe .alertinner')
